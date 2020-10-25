@@ -7,6 +7,7 @@ export const LoginProfile = gql`
     username: String
     email: String
     password: String
+    imageblob: String
   }
 `;
 

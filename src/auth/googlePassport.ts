@@ -13,6 +13,7 @@ export const GooglePassport = [
         clientSecret: process.env.googleClientSecret,
       },
       async (accessToken, refreshToken, profile, done) => {
+        
         try {
           const currentUser = await LoginQueries.getLoginByEmail(
             profile.emails[0].value

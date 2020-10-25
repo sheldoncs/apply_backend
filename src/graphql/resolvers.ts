@@ -8,6 +8,7 @@ import {
   addLoginInfo,
   deleteByUsername,
   deleteLoginById,
+  updatePhotoByUsername,
 } from "./resolvers/login/login";
 
 export const resolvers = {
@@ -24,5 +25,6 @@ export const resolvers = {
     deleteByUsername,
     deleteLoginById,
     updateLastLoginByEmail,
+    updatePhotoByUsername,
   },
 };

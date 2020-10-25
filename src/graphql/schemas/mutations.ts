@@ -13,7 +13,10 @@ export const mutations = gql`
     deleteByUsername(email: String): DeleteLoginResponse
 
     updateLastLoginByEmail(email: String): UpdateLoginResponse
-
+    updatePhotoByUsername(
+      username: String
+      base64string: String
+    ): UpdateLoginResponse
     updateUserById(
       id: ID
       username: String

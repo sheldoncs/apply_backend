@@ -35,18 +35,23 @@ export const LoginQueries = {
   },
 
   deleteLoginById: async (id) => {
-    return await knex("login").where({ id }).del().returning("*");
+    return await knex("logins").where({ id }).del().returning("*");
   },
 
   deleteLoginByEmail: async (email) => {
-    return await knex("login").where({ email }).del().returning("*");
+    return await knex("logins").where({ email }).del().returning("*");
   },
   updateUserbyId: async (id, login) => {
-    return await knex("login").where({ id }).update(login).returning("*");
+    return await knex("logins").where({ id }).update(login).returning("*");
+  },
+  updatePhotoByUsername: async (username: String, base64Photo: String) => {
+    return await knex("logins")
+      .where({ username })
+      .update({ imgblob: base64Photo }, ["*"]);
   },
   updateUserLastLoginByEmail: async (email: String) => {
     let date = knex.fn.now();
-    return await knex("login")
+    return await knex("logins")
       .where({ email })
       .update({ lastLogin: date }, ["*"]);
   },

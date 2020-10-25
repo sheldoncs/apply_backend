@@ -63,6 +63,23 @@ export const addLoginInfo = async (root: any, payload: LoginInterface) => {
     return { message };
   }
 };
+export const updatePhotoByUsername = async (
+  root: any,
+  args: { username: string; base64string: string }
+) => {
+  let loginInfo = Queries.LoginQueries.singleLoginByUsername(args.username);
+  if (loginInfo) {
+    await Queries.LoginQueries.updatePhotoByUsername(
+      args.username,
+      args.base64string
+    );
+    const message = `User, ${args.username} updated successfully`;
+    return { message, loginInfo };
+  } else {
+    const message = `User, ${args.username} does not exists`;
+    return { message };
+  }
+};
 export const updateLastLoginByEmail = async (
   root: any,
   args: { email: string }
