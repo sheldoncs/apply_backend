@@ -35,8 +35,6 @@ export const verifyToken = async ({ req, ...rest }) => {
       if (err) {
         throw new AuthenticationError("Must authenticate");
       } else {
-        console.log("decodedToken", decodedToken);
-
         return { authorized: true, user: decodedToken, ...rest };
       }
     });

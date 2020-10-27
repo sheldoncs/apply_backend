@@ -24,7 +24,6 @@ import "dotenv/config";
 import * as dotenv from "dotenv";
 import { Signup, localPassport } from "./auth/localPassport";
 import bodyParser from "body-parser";
-import { applyResultTransforms } from "graphql-tools";
 
 LinkedinPassport;
 GooglePassport;
@@ -101,9 +100,6 @@ const upload = multer({
   fileFilter: fileFilter,
 }).single("selectedFile");
 
-interface MulterRequest extends Request {
-  file: any;
-}
 app.post("/photo", (req, res) => {
   upload(req, res, function (err) {
     const base64string = convertFile(req.file.path);

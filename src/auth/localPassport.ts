@@ -61,7 +61,7 @@ export const Signup = async (
     //check if user exists
     const currentUser: any = await LoginQueries.getLoginByEmail(newUser.email);
     if (currentUser) {
-      console.log(currentUser);
+      
       return res.status(400).json({ message: "User already exists" });
     }
     //hash pass
